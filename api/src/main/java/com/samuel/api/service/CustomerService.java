@@ -21,4 +21,18 @@ public class CustomerService {
     public List<Customer> getAllCustomer(){
        return customerRepository.findAll();
     }
+
+
+    public Customer getCustomerById(Long id)
+    {
+        return customerRepository.findById(id).orElse(null);
+    }
+
+    public  void  deleteCustomer(Long id) {
+        customerRepository.deleteById(id);
+    }
+
+    public  Customer updateCustomer(Customer customer){
+        return customerRepository.save(customer);
+    }
 }
